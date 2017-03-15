@@ -22,7 +22,6 @@ describe("Thermostat", function() {
   describe("It throws an error", function(){
 
     it("if temperature falls below 10 degrees", function() {
-      // for (var i = 15; i > 1; i--) {}
       thermostat.temperature = 12
       expect(function(){thermostat.decreaseTemperature(3);}).toThrow("The temperature cannot fall below 10 degrees");
     });
