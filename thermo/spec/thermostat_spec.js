@@ -10,9 +10,9 @@ describe("Thermostat", function() {
     expect(thermostat.getCurrentTemperature()).toEqual(20);
   });
 
-  xit("raises the temperature by 5 degrees", function(){
-    thermostat.increase(5)
-    expect(thermostat.temperature()).toEqual(25);
+  it("raises the temperature by 5 degrees", function(){
+    thermostat.increaseTemperature(5)
+    expect(thermostat.getCurrentTemperature()).toEqual(25);
   });
 
 
