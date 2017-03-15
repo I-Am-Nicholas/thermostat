@@ -1,3 +1,6 @@
+'use strict';
+
+
 describe("Thermostat", function() {
   var thermostat;
   var temperature;
@@ -11,7 +14,7 @@ describe("Thermostat", function() {
   });
 
   xit("raises the temperature by 5 degrees", function(){
-    thermostat.increase(5)
+    thermostat.increaseTemp(5)
     expect(thermostat.temperature()).toEqual(25);
   });
 

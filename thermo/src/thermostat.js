@@ -1,12 +1,8 @@
 
-var Thermostat = function(){};
-
-const DEFAULT_TEMP = 20
-
-Thermostat.prototype.defaultTemp = function(){
-  return DEFAULT_TEMP
+function Thermostat() {
+  this.temperature = 20;
 };
 
-Thermostat.prototype.temperature = function(number){
-  return (DEFAULT_TEMP + number)
+Thermostat.prototype.getCurrentTemperature = function(){
+ return this.temperature;
 };
