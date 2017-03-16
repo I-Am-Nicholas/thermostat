@@ -12,7 +12,6 @@ describe("Thermostat", function() {
   });
 
   it("raises the temperature by 1 degree", function(){
-     console.log(thermostat.temperature);
     thermostat.increaseTemperature(1)
     expect(thermostat.getCurrentTemperature()).toEqual(21);
   });
@@ -23,6 +22,7 @@ describe("Thermostat", function() {
   });
 
   it("changes the temperature to default value", function() {
+    thermostat.increaseTemperature(1);
     thermostat.resetTemperature();
     expect(thermostat.getCurrentTemperature()).toEqual(thermostat.DEFAULT_TEMPERATURE);
   });
@@ -43,5 +43,24 @@ describe("Thermostat", function() {
     })
 
   });
+
+  describe("displays current energy usage", function() {
+
+    it("as low-usage when below 18 degrees", function() {
+      thermostat.decreaseTemperature(3);
+      expect(thermostat.currentEnergyUsage()).toEqual("low-usage")
+    });
+
+    it("as medium-usage when between 18 degrees and 24 degrees", function() {
+      expect(thermostat.currentEnergyUsage()).toEqual("medium-usage")
+    });
+
+    it("as high-usage when above 25 degrees", function() {
+      thermostat.increaseTemperature(5);
+      expect(thermostat.currentEnergyUsage()).toEqual("high-usage")
+    });
+
+  });
+
 
 });

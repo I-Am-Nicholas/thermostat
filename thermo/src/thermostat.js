@@ -37,7 +37,21 @@ Thermostat.prototype.powerSavingModeOff = function() {
   this.MAX_TEMPERATURE = 32;
 }
 
-
 Thermostat.prototype.resetTemperature = function() {
+  this.temperature = this.DEFAULT_TEMPERATURE;
+}
 
+Thermostat.prototype.currentEnergyUsage = function() {
+  var current = this.temperature;
+  switch(true) {
+    case (current < 18):
+      return('low-usage');
+      break;
+    case (current > 18 && current < 25):
+      return('medium-usage');
+      break;
+    default:
+      return('high-usage');
+      break;
+  }
 }
