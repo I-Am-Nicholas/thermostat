@@ -75,5 +75,19 @@ describe("Thermostat", function() {
 
   });
 
+  describe("has power saving mode", function() {
+
+    it('displays as on', function() {
+      thermostat.powerSavingModeOn();
+      expect(thermostat.isPowerSavingModeOn()).toEqual(true);
+    });
+
+    it('displays as off', function() {
+      thermostat.powerSavingModeOff();
+      expect(thermostat.isPowerSavingModeOn()).toEqual(false);
+    });
+
+  });
+
 
 });
