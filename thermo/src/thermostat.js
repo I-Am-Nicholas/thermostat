@@ -52,7 +52,7 @@ Thermostat.prototype.currentEnergyUsage = function() {
     case (current < 18):
       return('low-usage');
       break;
-    case (current > 18 && current < 25):
+    case (current >= 18 && current < 25):
       return('medium-usage');
       break;
     default:
