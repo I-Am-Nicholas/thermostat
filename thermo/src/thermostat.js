@@ -12,18 +12,19 @@ Thermostat.prototype.getCurrentTemperature = function(){
  return this.temperature;
 };
 
-Thermostat.prototype.increaseTemperature = function(number){
-  if ((this.temperature + number) > this.MAX_TEMPERATURE){
+Thermostat.prototype.increaseTemperature = function(){
+  if ((this.temperature + 1) > this.MAX_TEMPERATURE){
     throw("Temperature cannot rise above the maximum.")
   } else {
-     this.temperature += number;
-   }
+    this.temperature += 1;
+  }
 };
 
-Thermostat.prototype.decreaseTemperature = function(number){
-  this.temperature -= number;
-  if (this.temperature < this.MIN_TEMPERATURE){
+Thermostat.prototype.decreaseTemperature = function(){
+  if ((this.temperature - 1) < this.MIN_TEMPERATURE){
     throw("The temperature cannot fall below 10 degrees");
+  } else {
+    this.temperature -= 1;
   }
 };
 

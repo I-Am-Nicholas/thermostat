@@ -17,7 +17,7 @@ describe("Thermostat", function() {
   });
 
   it("decreases the temperature by 1 degree", function(){
-    thermostat.decreaseTemperature(1)
+    thermostat.decreaseTemperature()
     expect(thermostat.getCurrentTemperature()).toEqual(19);
   });
 
@@ -30,22 +30,25 @@ describe("Thermostat", function() {
   describe("throws an error", function(){
 
     it("if temperature falls below 10 degrees", function() {
-      expect(function(){thermostat.decreaseTemperature(11);}).toThrow("The temperature cannot fall below 10 degrees");
+      for(var i = 0; i < 10; i ++) {
+        thermostat.decreaseTemperature()
+      }
+      expect(function(){thermostat.decreaseTemperature();}).toThrow("The temperature cannot fall below 10 degrees");
     });
 
     it("if temperature rises above 25 degrees when power saving is on", function(){
       for(var i = 0; i < 5; i ++) {
         thermostat.increaseTemperature();
       }
-      expect(function(){thermostat.increaseTemperature(8);}).toThrow("Temperature cannot rise above the maximum.");
+      expect(function(){thermostat.increaseTemperature();}).toThrow("Temperature cannot rise above the maximum.");
     });
 
     it("if temperature rises above 32 degrees when power saving mode is off", function() {
       thermostat.powerSavingModeOff();
-      for(var i = 0; i < 13; i ++) {
+      for(var i = 0; i < 12; i ++) {
         thermostat.increaseTemperature();
       }
-      expect(function() {thermostat.increaseTemperature(13);}).toThrow("Temperature cannot rise above the maximum.");
+      expect(function() {thermostat.increaseTemperature();}).toThrow("Temperature cannot rise above the maximum.");
     })
 
   });
@@ -53,7 +56,9 @@ describe("Thermostat", function() {
   describe("displays current energy usage", function() {
 
     it("as low-usage when below 18 degrees", function() {
-      thermostat.decreaseTemperature(3);
+      for(var i = 0; i < 3; i ++) {
+        thermostat.decreaseTemperature();
+      }
       expect(thermostat.currentEnergyUsage()).toEqual("low-usage")
     });
 
@@ -62,7 +67,9 @@ describe("Thermostat", function() {
     });
 
     it("as high-usage when above 25 degrees", function() {
-      thermostat.increaseTemperature(5);
+      for(var i = 0; i < 5; i ++) {
+        thermostat.increaseTemperature();
+      }
       expect(thermostat.currentEnergyUsage()).toEqual("high-usage")
     });
 
