@@ -22,6 +22,11 @@ describe("Thermostat", function() {
     expect(thermostat.getCurrentTemperature()).toEqual(19);
   });
 
+  it("changes the temperature to default value", function() {
+    thermostat.resetTemperature();
+    expect(thermostat.getCurrentTemperature()).toEqual(thermostat.DEFAULT_TEMPERATURE);
+  });
+
   describe("throws an error", function(){
 
     it("if temperature falls below 10 degrees", function() {
