@@ -1,3 +1,5 @@
+'use strict';
+
 function Thermostat() {
   this.temperature = 20;
 };
@@ -10,10 +12,14 @@ Thermostat.prototype.getCurrentTemperature = function(){
 };
 
 Thermostat.prototype.increaseTemperature = function(number){
-  this.temperature += number;
-  if (this.temperature > 25 && powerSaver == true){
-    throw "Power Saving Mode is on. Temperature cannot rise above 25 degrees."
+  if ((this.temperature += number) > 25 && powerSaver == true){
+  //  this.temperature -= number;
+    throw("Power Saving Mode is on. Temperature cannot rise above 25 degrees.")
   }
+   else {
+     this.temperature += number;
+   }
+
 };
 
 Thermostat.prototype.decreaseTemperature = function(number){

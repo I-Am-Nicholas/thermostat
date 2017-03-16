@@ -1,3 +1,5 @@
+'use strict';
+
 describe("Thermostat", function() {
   var thermostat;
 
@@ -10,6 +12,7 @@ describe("Thermostat", function() {
   });
 
   it("raises the temperature by 1 degree", function(){
+     console.log(thermostat.temperature);
     thermostat.increaseTemperature(1)
     expect(thermostat.getCurrentTemperature()).toEqual(21);
   });
@@ -19,16 +22,14 @@ describe("Thermostat", function() {
     expect(thermostat.getCurrentTemperature()).toEqual(19);
   });
 
-  describe("It throws an error", function(){
+  describe("throws an error", function(){
 
     it("if temperature falls below 10 degrees", function() {
-      thermostat.temperature = 12
-      expect(function(){thermostat.decreaseTemperature(3);}).toThrow("The temperature cannot fall below 10 degrees");
+      expect(function(){thermostat.decreaseTemperature(11);}).toThrow("The temperature cannot fall below 10 degrees");
     });
 
     it("if temperature rises above 25 degrees when power saving is on", function(){
-      thermostat.temperature = 25
-      expect(function(){thermostat.increaseTemperature(1);}).toThrow("Power Saving Mode is on. Temperature cannot rise above 25 degrees.");
+      expect(function(){thermostat.increaseTemperature(8);}).toThrow("Power Saving Mode is on. Temperature cannot rise above 25 degrees.");
     });
 
   });
