@@ -7,12 +7,12 @@ describe("Thermostat", function() {
     thermostat = new Thermostat();
   });
 
-  it("Has temperature of 20 degrees", function(){
-    expect(thermostat.getCurrentTemperature()).toEqual(20);
+  it("Has a default temperature of 20 degrees", function(){
+    expect(thermostat.getCurrentTemperature()).toEqual(thermostat.DEFAULT_TEMPERATURE);
   });
 
   it("raises the temperature by 1 degree", function(){
-    thermostat.increaseTemperature(1)
+    thermostat.increaseTemperature()
     expect(thermostat.getCurrentTemperature()).toEqual(21);
   });
 
@@ -22,7 +22,7 @@ describe("Thermostat", function() {
   });
 
   it("changes the temperature to default value", function() {
-    thermostat.increaseTemperature(1);
+    thermostat.increaseTemperature();
     thermostat.resetTemperature();
     expect(thermostat.getCurrentTemperature()).toEqual(thermostat.DEFAULT_TEMPERATURE);
   });
@@ -34,11 +34,17 @@ describe("Thermostat", function() {
     });
 
     it("if temperature rises above 25 degrees when power saving is on", function(){
+      for(var i = 0; i < 5; i ++) {
+        thermostat.increaseTemperature();
+      }
       expect(function(){thermostat.increaseTemperature(8);}).toThrow("Temperature cannot rise above the maximum.");
     });
 
     it("if temperature rises above 32 degrees when power saving mode is off", function() {
       thermostat.powerSavingModeOff();
+      for(var i = 0; i < 13; i ++) {
+        thermostat.increaseTemperature();
+      }
       expect(function() {thermostat.increaseTemperature(13);}).toThrow("Temperature cannot rise above the maximum.");
     })
 
