@@ -1,6 +1,5 @@
 'use strict';
 
-
 describe("Thermostat", function() {
   var thermostat;
   var temperature;

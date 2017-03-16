@@ -29,8 +29,13 @@ describe("Thermostat", function() {
     });
 
     it("if temperature rises above 25 degrees when power saving is on", function(){
-      expect(function(){thermostat.increaseTemperature(8);}).toThrow("Power Saving Mode is on. Temperature cannot rise above 25 degrees.");
+      expect(function(){thermostat.increaseTemperature(8);}).toThrow("Temperature cannot rise above the maximum.");
     });
+
+    it("if temperature rises above 32 degrees when power saving mode is off", function() {
+      thermostat.powerSavingModeOff();
+      expect(function() {thermostat.increaseTemperature(13);}).toThrow("Temperature cannot rise above the maximum.");
+    })
 
   });
 
