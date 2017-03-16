@@ -1,8 +1,8 @@
 
 $( document ).ready(function() {
+  thermo = new Thermostat();
+  $ ("#current-temp")
 
-  $( "button" ).click(function( event ) {
-    $( this ).hide( 1000 );
-  });
+  alert(thermo.getCurrentTemperature())
 
 });
