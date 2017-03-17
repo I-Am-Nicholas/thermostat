@@ -53,7 +53,7 @@ describe("Thermostat", function() {
 
   });
 
-  describe("displays current energy usage", function() {
+  describe("Displays current energy usage", function() {
 
     it("as low-usage when below 18 degrees", function() {
       for(var i = 0; i < 3; i ++) {

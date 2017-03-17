@@ -1,18 +1,28 @@
-
 $( document ).ready(function() {
   thermo = new Thermostat();
 
   $ ("#current-temp").text(thermo.getCurrentTemperature());
 
+
   $ ("#change-temp-up").click(function() {
     thermo.increaseTemperature();
-    // catch (e) {
-    //   thermo.temperature = thermo.MAX_TEMPERATURE;
-    //   console.log(e);
-    // }
     $ ("#current-temp").text(thermo.getCurrentTemperature());
     $ ("#current-energy-usage").text(thermo.currentEnergyUsage());
-  });
+
+    if ((thermo.temperature == thermo.MAX_TEMPERATURE) && (thermo.POWER_SAVER = true)){
+      $( this )
+        .mousedown(function() {
+          $( "#psm" ).css('color', 'red');
+
+        })
+        .mouseup(function() {
+          $( "#psm" ).css('color', 'black');
+        });
+      }
+    });
+
+
+
 
   $ ("#change-temp-down").click(function() {
     thermo.decreaseTemperature();
@@ -41,5 +51,9 @@ $( document ).ready(function() {
   });
 
   $ ("#current-energy-usage").text(thermo.currentEnergyUsage());
+
+
+
+
 
 });
