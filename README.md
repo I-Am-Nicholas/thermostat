@@ -1,3 +1,3 @@
 # THERMOSTAT
 
-## A JavaScript Thermostat with an HTML front - end and JQuery UI
+## A JavaScript Thermostat Interface with HTML and a JQuery UI

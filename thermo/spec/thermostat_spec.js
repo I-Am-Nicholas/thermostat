@@ -75,7 +75,7 @@ describe("Thermostat", function() {
 
   });
 
-  describe("has power saving mode", function() {
+  describe("power saving mode", function() {
 
     it('displays as on', function() {
       thermostat.powerSavingModeOn();
@@ -88,6 +88,11 @@ describe("Thermostat", function() {
     });
 
   });
+
+  // describe("temperature gauge", function(){
+  //   thermostat.mercury() = 25;
+  //   expect(thermostat.()).toEqual(false);
+  // });
 
 
 });

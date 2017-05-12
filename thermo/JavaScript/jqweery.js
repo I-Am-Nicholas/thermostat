@@ -1,5 +1,7 @@
+'use strict';
+
 $( document ).ready(function() {
-  thermo = new Thermostat();
+  var thermo = new Thermostat();
 
   $ ("#current-temp").text(thermo.getCurrentTemperature());
 
@@ -13,13 +15,19 @@ $( document ).ready(function() {
       $( this )
         .mousedown(function() {
           $( "#psm" ).css('color', 'red');
-
         })
         .mouseup(function() {
           $( "#psm" ).css('color', 'black');
         });
       }
-    });
+
+    else if (thermo.temperature < thermo.MAX_TEMPERATURE) {
+      $( this )
+      .mousedown(function() {
+          $( "#psm" ).css('color', 'black');
+      })
+    }
+  });
 
 
 
@@ -28,6 +36,7 @@ $( document ).ready(function() {
     thermo.decreaseTemperature();
     $ ("#current-temp").text(thermo.getCurrentTemperature());
     $ ("#current-energy-usage").text(thermo.currentEnergyUsage());
+    thermo.warningCheck();
   });
 
   $ ("#change-temp-reset").click(function() {
@@ -42,6 +51,8 @@ $( document ).ready(function() {
 
   $ ("#change-psm-on").click(function(){
     thermo.powerSavingModeOn();
+    thermo.temperature = thermo.MAX_TEMPERATURE
+    $ ("#current-temp").text(thermo.getCurrentTemperature());
     $ ("#current-psm").text("ON");
   });
 
@@ -51,9 +62,5 @@ $( document ).ready(function() {
   });
 
   $ ("#current-energy-usage").text(thermo.currentEnergyUsage());
-
-
-
-
 
 });

@@ -1,0 +1,57 @@
+body {
+  background-image: url("thermoBG.jpeg");
+}
+
+h1, h2 {
+    font-family: "Helvetica";
+}
+
+.sentences {
+   color: #000;
+}
+.sentences.turnedon {
+   color: #fff;
+}
+
+button {
+    background-color: #4CAF50; /* Green */
+    border: 2px: solid;
+    border-radius: 8px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+* :focus {
+  outline: none;
+}
+
+#outer{
+  border: 2px solid gray;
+  margin-top: 50px;
+  text-align: center;
+  height: 450px;
+  width: 55%;
+}
+
+#inner{
+  float: left;
+  /*border: 2px violet solid;*/
+  width: 85%;
+  height: 100%;
+}
+
+#current-temp {
+  font-size: 2.5em;
+}
+
+#temperature-gauge{
+  background-color: hsla(50, 33%, 25%, 0.5);
+  float: right;
+  /*border: 2px darkgreen solid;*/
+  height: 100%;
+  width: 14%;
+}
