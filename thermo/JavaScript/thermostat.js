@@ -1,11 +1,14 @@
 'use strict';
 
-function Thermostat() {
+// function Thermostat() {
+var Thermostat = function(){
   this.DEFAULT_TEMPERATURE = 20;
   this.temperature = this.DEFAULT_TEMPERATURE;
   this.MIN_TEMPERATURE = 10;
   this.MAX_TEMPERATURE = 25;
   this.POWER_SAVER = true;
+  this.LOWEST = 18;
+  this.HIGHEST = 25;
 };
 
 Thermostat.prototype.getCurrentTemperature = function(){
@@ -49,10 +52,10 @@ Thermostat.prototype.resetTemperature = function() {
 Thermostat.prototype.currentEnergyUsage = function() {
   var current = this.temperature;
   switch(true) {
-    case (current < 18):
+    case (current < this.LOWEST):
       return('low-usage');
       break;
-    case (current >= 18 && current < 25):
+    case (current >= this.LOWEST && current < this.HIGHEST):
       return('medium-usage');
       break;
     default:

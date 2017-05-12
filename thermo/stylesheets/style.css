@@ -44,13 +44,34 @@ button {
   font-size: 2.5em;
 }
 
+#current-psm {
+  font-size: 1.5em;
+}
+
 #temperature-gauge{
-  border: 2px gray solid;
-  /*background-color: hsla(50, 33%, 25%, 0.5);*/
-  /*background-color: gray;*/
+  border: 1px gray solid;
+  background-color: hsla(50, 33%, 25%, 0.5);
   float: left;
-  margin: 75px 0 75px 100px;
+  margin: 50px 0 75px 100px;
   position: relative;
-  height: 300px;
-  width: 50px;
+  height: 340px;
+  width: 45px;
+}
+
+.section {
+  position: relative;
+  border: 1px gray solid;
+  height: 15px;
+  width: 100%;
+}
+
+.w3-border {
+  border-top-color: orange;
+  border-width: 1px;
+  border-style: solid;
+  background-color: hsla(0, 100%, 50%, 0.2);
+  position: absolute;
+  bottom: 0;
+  height: 65%;
+  width: 45px;
 }
