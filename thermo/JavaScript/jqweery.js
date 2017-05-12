@@ -4,10 +4,11 @@ $( document ).ready(function() {
   var thermo = new Thermostat();
 
   $ ("#current-temp").text(thermo.getCurrentTemperature());
-
+  thermo.resetThermostat();
 
   $ ("#change-temp-up").click(function() {
     thermo.increaseTemperature();
+    $ ('#mercury').css('height', '+=' + thermo.INCREMENT);
     $ ("#current-temp").text(thermo.getCurrentTemperature());
     $ ("#current-energy-usage").text(thermo.currentEnergyUsage());
 
@@ -29,14 +30,11 @@ $( document ).ready(function() {
     }
   });
 
-
-
-
-  $ ("#change-temp-down").click(function() {
+  $ ('#change-temp-down').click(function() {
     thermo.decreaseTemperature();
+    $('#mercury').css('height', '-=' + thermo.INCREMENT);
     $ ("#current-temp").text(thermo.getCurrentTemperature());
     $ ("#current-energy-usage").text(thermo.currentEnergyUsage());
-    thermo.warningCheck();
   });
 
   $ ("#change-temp-reset").click(function() {
@@ -50,8 +48,8 @@ $( document ).ready(function() {
     });
 
   $ ("#change-psm-on").click(function(){
+    thermo.temperature = thermo.PSM_ON_MAX
     thermo.powerSavingModeOn();
-    thermo.temperature = thermo.MAX_TEMPERATURE
     $ ("#current-temp").text(thermo.getCurrentTemperature());
     $ ("#current-psm").text("ON");
   });

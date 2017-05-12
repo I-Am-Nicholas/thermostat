@@ -48,30 +48,23 @@ button {
   font-size: 1.5em;
 }
 
-#temperature-gauge{
+#temperature-gauge {
   border: 1px gray solid;
   background-color: hsla(50, 33%, 25%, 0.5);
   float: left;
   margin: 50px 0 75px 100px;
   position: relative;
-  height: 340px;
+  height: 352px;
   width: 45px;
 }
 
-.section {
-  position: relative;
-  border: 1px gray solid;
-  height: 15px;
-  width: 100%;
-}
-
-.w3-border {
+#mercury {
   border-top-color: orange;
   border-width: 1px;
   border-style: solid;
   background-color: hsla(0, 100%, 50%, 0.2);
   position: absolute;
   bottom: 0;
-  height: 65%;
+  height: 1%;
   width: 45px;
 }
