@@ -3,14 +3,7 @@ body {
 }
 
 h1, h2 {
-    font-family: "Helvetica";
-}
-
-.sentences {
-   color: #000;
-}
-.sentences.turnedon {
-   color: #fff;
+  font-family: "Helvetica";
 }
 
 button {
@@ -32,16 +25,18 @@ button {
 #outer{
   background-color: hsla(50, 33%, 25%, 0.25);
   border: 2px solid gray;
+  position: relative;
   margin-top: 50px;
-  text-align: center;
   height: 450px;
   width: 55%;
 }
 
 #inner{
-  float: left;
   /*border: 2px violet solid;*/
-  width: 100%;
+  float: left;
+  position: relative;
+  margin: 0 0 0 150px;
+  width: 55%;
   height: 100%;
 }
 
@@ -50,9 +45,12 @@ button {
 }
 
 #temperature-gauge{
+  border: 2px gray solid;
   /*background-color: hsla(50, 33%, 25%, 0.5);*/
-  float: right;
-  /*border: 2px darkgreen solid;*/
-  height: 100%;
-  width: 10%;
+  /*background-color: gray;*/
+  float: left;
+  margin: 75px 0 75px 100px;
+  position: relative;
+  height: 300px;
+  width: 50px;
 }
