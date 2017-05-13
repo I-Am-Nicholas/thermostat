@@ -8,7 +8,7 @@ describe("Thermostat", function() {
     spyOn(thermostat, 'resetThermostat');
   });
 
-  it("Has a default temperature of 20 degrees", function(){
+  it("Initializes at default temperature", function(){
     expect(thermostat.getCurrentTemperature()).toEqual(thermostat.DEFAULT_TEMPERATURE);
   });
 
@@ -22,7 +22,7 @@ describe("Thermostat", function() {
     expect(thermostat.getCurrentTemperature()).toEqual(19);
   });
 
-  it("changes the temperature to default value", function() {
+  it("resets the temperature to default value", function() {
     thermostat.increaseTemperature();
     thermostat.resetTemperature();
     expect(thermostat.getCurrentTemperature()).toEqual(thermostat.DEFAULT_TEMPERATURE);
@@ -30,14 +30,14 @@ describe("Thermostat", function() {
 
   describe("throws an error", function(){
 
-    it("if temperature falls below 10 degrees", function() {
+    it("if temperature is attempted to be adjusted to below 10 degrees", function() {
       for(var i = 0; i < 10; i ++) {
         thermostat.decreaseTemperature()
       }
       expect(function(){thermostat.decreaseTemperature();}).toThrow("The temperature cannot fall below the minimum.");
     });
 
-    it("if temperature rises above 25 degrees when power saving is on", function(){
+    it("if temperature is attempted to be adjusted above 25 degrees when power saving is on", function(){
       for(var i = 0; i < 5; i ++) {
         thermostat.powerSavingModeOn();
         thermostat.increaseTemperature();
@@ -45,7 +45,7 @@ describe("Thermostat", function() {
       expect(function(){thermostat.increaseTemperature();}).toThrow("Temperature cannot rise above the maximum.");
     });
 
-    it("if temperature rises above 32 degrees when power saving mode is off", function() {
+    it("if temperature is attempted to be adjusted above 32 degrees when power saving mode is off", function() {
       thermostat.powerSavingModeOff();
       for(var i = 0; i < 12; i ++) {
         thermostat.increaseTemperature();
@@ -79,23 +79,16 @@ describe("Thermostat", function() {
 
   describe("power saving mode", function() {
 
-    it('displays as on', function() {
+    it('is on', function() {
       thermostat.powerSavingModeOn();
       expect(thermostat.isPowerSavingModeOn()).toEqual(true);
     });
 
-    it('displays as off', function() {
+    it('is off', function() {
       thermostat.powerSavingModeOff();
       expect(thermostat.isPowerSavingModeOn()).toEqual(false);
     });
 
   });
-
-  // describe("temperature gauge", function(){
-  //   thermostat.mercury().css({'height': '0px'});;
-  //   $('#description_wrapper').css({'height': '0px'});
-  //   expect(thermostat.mercury().css({'height': '0px'});).toEqual();
-  // });
-
 
 });
