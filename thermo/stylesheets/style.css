@@ -1,9 +1,8 @@
 body {
   background-image: url("thermoBG.jpeg");
-}
-
-h1, h2 {
   font-family: "Helvetica";
+  font-size: 2em;
+  font-weight: bold;
 }
 
 button {
@@ -27,7 +26,7 @@ button {
   border: 2px solid gray;
   position: relative;
   margin-top: 50px;
-  height: 450px;
+  height: 525px;
   width: 55%;
 }
 
@@ -35,17 +34,24 @@ button {
   /*border: 2px violet solid;*/
   float: left;
   position: relative;
-  margin: 0 0 0 150px;
+  margin: 15px 0 0 150px;
   width: 55%;
   height: 100%;
+}
+
+#main {
+font-size: 1.2em;
+margin: 20px 0 20px 0;
 }
 
 #current-temp {
   font-size: 2.5em;
 }
 
-#current-psm {
-  font-size: 1.5em;
+.text-divs {
+  /*border: 2px red solid;*/
+  margin-top: 20px;
+  padding: 5px;
 }
 
 #temperature-gauge {
@@ -54,7 +60,7 @@ button {
   float: left;
   margin: 50px 0 75px 100px;
   position: relative;
-  height: 340px;
+  height: 377px;
   width: 45px;
 }
 

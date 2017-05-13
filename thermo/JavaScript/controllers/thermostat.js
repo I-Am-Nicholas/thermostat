@@ -11,16 +11,11 @@ var Thermostat = function(){
   this.POWER_SAVER = false;
   this.LOWEST = 18;
   this.HIGHEST = 25;
-  this.INCREMENT = 10//TO FIX
+  this.INCREMENT = 12//TO FIX
 };
 
 Thermostat.prototype.getCurrentTemperature = function(){
  return this.temperature;
-};
-
-Thermostat.prototype.displayedTemperature = function(){
-  var temp = document.getElementById('current-temp');
-  console.log(temp);
 };
 
 Thermostat.prototype.increaseTemperature = function(){
@@ -28,6 +23,7 @@ Thermostat.prototype.increaseTemperature = function(){
     throw("Temperature cannot rise above the maximum.")
   } else {
     this.temperature += 1;
+    console.log(this.temperature)
   }
 };
 
@@ -45,7 +41,7 @@ Thermostat.prototype.resetTemperature = function() {
 }
 
 Thermostat.prototype.resetGauge = function() {
-  var gauge = document.getElementById("temperature-gauge").clientHeight;
+  var gauge = document.getElementById('temperature-gauge').clientHeight;
   var reset = ((this.temperature / this.PSM_OFF_MAX) * 100)
   var merc = document.getElementById('mercury').style.height = reset + '%'
 };
@@ -70,13 +66,13 @@ Thermostat.prototype.currentEnergyUsage = function() {
   var current = this.temperature;
   switch(true) {
     case (current < this.LOWEST):
-      return('low-usage');
+      return('Low');
       break;
     case (current >= this.LOWEST && current < this.HIGHEST):
-      return('medium-usage');
+      return('Medium');
       break;
     default:
-      return('high-usage');
+      return('High');
       break;
   }
 }

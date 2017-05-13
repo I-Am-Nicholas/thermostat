@@ -1,4 +1,4 @@
-// 'use strict';
+'use strict';
 
 describe("Thermostat", function() {
   var thermostat;
@@ -14,16 +14,16 @@ describe("Thermostat", function() {
 
   it("raises the temperature by 1 degree", function(){
     thermostat.increaseTemperature()
-    expect(thermostat.getCurrentTemperature()).toEqual(21);
+    expect(thermostat.getCurrentTemperature()).toEqual(thermostat.DEFAULT_TEMP + 1);
   });
 
   it("decreases the temperature by 1 degree", function(){
     thermostat.decreaseTemperature()
-    expect(thermostat.getCurrentTemperature()).toEqual(19);
+    expect(thermostat.getCurrentTemperature()).toEqual(thermostat.DEFAULT_TEMP - 1);
   });
 
 describe("Reset Temperature button", function(){
-  it("resets the temperature to default value", function() {
+  it("resets the temperature to the default value", function() {
     thermostat.increaseTemperature();
     thermostat.resetTemperature();
     expect(thermostat.getCurrentTemperature()).toEqual(thermostat.DEFAULT_TEMP);
@@ -31,7 +31,7 @@ describe("Reset Temperature button", function(){
 });
 
   describe("throws an error", function(){
-    it("if temperature is attempted to be adjusted to below 10 degrees", function() {
+    it("if temperature is attempted to be adjusted to below 10 degrees", function(){
       for(var i = 0; i < 10; i ++) {
         thermostat.decreaseTemperature()
       }
@@ -41,7 +41,6 @@ describe("Reset Temperature button", function(){
     it("if temperature is attempted to be adjusted above 25 degrees when power saving is on", function(){
       for(var i = 0; i < 5; i ++) {
         thermostat.powerSavingModeOn();
-        // thermostat.increaseTemperature();
       }
       expect(function(){thermostat.increaseTemperature();}).toThrow("Temperature cannot rise above the maximum.");
     });
@@ -87,6 +86,7 @@ describe("Reset Temperature button", function(){
     });
 
     it('adjusts the temperature to the Power Saving Mode default', function(){
+      thermostat.increaseTemperature();
       thermostat.powerSavingModeOn();
       expect(thermostat.getCurrentTemperature()).toEqual(thermostat.PSM_ON_MAX);
     });
