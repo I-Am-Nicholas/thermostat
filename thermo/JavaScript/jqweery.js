@@ -12,7 +12,7 @@ $( document ).ready(function() {
     $ ("#current-temp").text(thermo.getCurrentTemperature());
     $ ("#current-energy-usage").text(thermo.currentEnergyUsage());
 
-    if ((thermo.temperature == thermo.MAX_TEMPERATURE) && (thermo.POWER_SAVER = true)){
+    if ((thermo.temperature == thermo.PSM_ON_MAX) && (thermo.POWER_SAVER = true)){
       $( this )
         .mousedown(function() {
           $( "#psm" ).css('color', 'red');

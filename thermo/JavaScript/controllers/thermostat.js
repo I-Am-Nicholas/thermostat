@@ -11,16 +11,10 @@ var Thermostat = function(){
   this.POWER_SAVER = false;
   this.LOWEST = 18;
   this.HIGHEST = 25;
-  this.INCREMENT = 8
-};
-
-Thermostat.prototype.incrementsBy = function(){
-  var gauge = document.getElementById("temperature-gauge").clientHeight;
-  var increment = Math.floor(gauge / (this.MAX_TEMPERATURE - this.MIN_TEMPERATURE));
+  this.INCREMENT = 10//TO FIX
 };
 
 Thermostat.prototype.getCurrentTemperature = function(){
-  console.log(this.INCREMENT)
  return this.temperature;
 };
 
@@ -47,7 +41,7 @@ Thermostat.prototype.resetTemperature = function() {
 
 Thermostat.prototype.resetThermostat = function() {
   var gauge = document.getElementById("temperature-gauge").clientHeight;
-  var reset = Math.floor(gauge / (100 / this.temperature))
+  var reset = ((this.temperature / 32) * 100)
   var merc = document.getElementById('mercury').style.height = reset + '%'
 };
 

@@ -5,6 +5,7 @@ describe("Thermostat", function() {
 
   beforeEach(function(){
     thermostat = new Thermostat();
+    spyOn(thermostat, 'resetThermostat');
   });
 
   it("Has a default temperature of 20 degrees", function(){
@@ -33,11 +34,12 @@ describe("Thermostat", function() {
       for(var i = 0; i < 10; i ++) {
         thermostat.decreaseTemperature()
       }
-      expect(function(){thermostat.decreaseTemperature();}).toThrow("The temperature cannot fall below 10 degrees");
+      expect(function(){thermostat.decreaseTemperature();}).toThrow("The temperature cannot fall below the minimum.");
     });
 
     it("if temperature rises above 25 degrees when power saving is on", function(){
       for(var i = 0; i < 5; i ++) {
+        thermostat.powerSavingModeOn();
         thermostat.increaseTemperature();
       }
       expect(function(){thermostat.increaseTemperature();}).toThrow("Temperature cannot rise above the maximum.");
@@ -90,8 +92,9 @@ describe("Thermostat", function() {
   });
 
   // describe("temperature gauge", function(){
-  //   thermostat.mercury() = 25;
-  //   expect(thermostat.()).toEqual(false);
+  //   thermostat.mercury().css({'height': '0px'});;
+  //   $('#description_wrapper').css({'height': '0px'});
+  //   expect(thermostat.mercury().css({'height': '0px'});).toEqual();
   // });
 
 
