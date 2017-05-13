@@ -1,15 +1,15 @@
-'use strict';
+// 'use strict';
 
 describe("Thermostat", function() {
   var thermostat;
 
   beforeEach(function(){
     thermostat = new Thermostat();
-    spyOn(thermostat, 'resetThermostat');
+    spyOn(thermostat, 'resetGauge');
   });
 
   it("Initializes at default temperature", function(){
-    expect(thermostat.getCurrentTemperature()).toEqual(thermostat.DEFAULT_TEMPERATURE);
+    expect(thermostat.getCurrentTemperature()).toEqual(thermostat.DEFAULT_TEMP);
   });
 
   it("raises the temperature by 1 degree", function(){
@@ -22,14 +22,15 @@ describe("Thermostat", function() {
     expect(thermostat.getCurrentTemperature()).toEqual(19);
   });
 
+describe("Reset Temperature button", function(){
   it("resets the temperature to default value", function() {
     thermostat.increaseTemperature();
     thermostat.resetTemperature();
-    expect(thermostat.getCurrentTemperature()).toEqual(thermostat.DEFAULT_TEMPERATURE);
+    expect(thermostat.getCurrentTemperature()).toEqual(thermostat.DEFAULT_TEMP);
   });
+});
 
   describe("throws an error", function(){
-
     it("if temperature is attempted to be adjusted to below 10 degrees", function() {
       for(var i = 0; i < 10; i ++) {
         thermostat.decreaseTemperature()
@@ -40,7 +41,7 @@ describe("Thermostat", function() {
     it("if temperature is attempted to be adjusted above 25 degrees when power saving is on", function(){
       for(var i = 0; i < 5; i ++) {
         thermostat.powerSavingModeOn();
-        thermostat.increaseTemperature();
+        // thermostat.increaseTemperature();
       }
       expect(function(){thermostat.increaseTemperature();}).toThrow("Temperature cannot rise above the maximum.");
     });
@@ -52,11 +53,9 @@ describe("Thermostat", function() {
       }
       expect(function() {thermostat.increaseTemperature();}).toThrow("Temperature cannot rise above the maximum.");
     })
-
   });
 
   describe("Displays current energy usage", function() {
-
     it("as low-usage when below 18 degrees", function() {
       for(var i = 0; i < 3; i ++) {
         thermostat.decreaseTemperature();
@@ -74,11 +73,9 @@ describe("Thermostat", function() {
       }
       expect(thermostat.currentEnergyUsage()).toEqual("high-usage")
     });
-
   });
 
-  describe("power saving mode", function() {
-
+  describe("Power Saving Mode", function() {
     it('is on', function() {
       thermostat.powerSavingModeOn();
       expect(thermostat.isPowerSavingModeOn()).toEqual(true);
@@ -89,6 +86,10 @@ describe("Thermostat", function() {
       expect(thermostat.isPowerSavingModeOn()).toEqual(false);
     });
 
+    it('adjusts the temperature to the Power Saving Mode default', function(){
+      thermostat.powerSavingModeOn();
+      expect(thermostat.getCurrentTemperature()).toEqual(thermostat.PSM_ON_MAX);
+    });
   });
 
 });

@@ -3,58 +3,56 @@
   <head>
     <meta charset="utf-8">
     <title>Thermostat</title>
-    <script src="JavaScript/controllers/thermostat.js"></script>
     <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
   </head>
-
-  <body>
-
   <script src="lib/jquery.js"></script>
   <script src="JavaScript/jqweery.js"></script>
+  <script src="JavaScript/controllers/thermostat.js"></script>
 
-<center>
-  <div id=outer>
-    <div id=inner>
-        <h1>Temperature Set To: <span id="current-temp"></span>&#8451;</h1>
-        <button type="button" id="change-temp-up">Up</button>
-        <button type="button" id="change-temp-down">Down</button>
-        <button type="button" id="change-temp-reset">Reset Temperature</button><br>
+  <body>
+    <center>
+      <div id=outer>
+        <div id=inner>
+            <div id=main>Temperature Set To: <span id="current-temp"></span>&#8451;</div>
+            <button type="button" id="change-temp-up">Up</button>
+            <button type="button" id="change-temp-down">Down</button>
+            <button type="button" id="change-temp-reset">Reset Temperature</button><br>
 
-        <h2 id="psm">Power Saving Mode is: <span id="current-psm"></span></h2><br>
-        <button type="button" id="change-psm-on">Turn PSM On</button>
-        <button type="button" id="change-psm-off">Turn PSM Off</button><br>
+            <h2 id="psm">Power Saving Mode is: <span id="current-psm"></span></h2><br>
+            <button type="button" id="change-psm-on">Turn PSM On</button>
+            <button type="button" id="change-psm-off">Turn PSM Off</button><br>
 
-        <h2>Energy usage: <span id="current-energy-usage">low/medium/high</span></h2>
-    </div>
-
-    <div id="temperature-gauge">
-        <div id="mercury">
-
+            <h2>Energy usage: <span id="current-energy-usage">low/medium/high</span></h2>
         </div>
 
-      <!-- <div class=section></div>
-      <div class=section></div>
-      <div class=section></div>
-      <div class=section></div>
-      <div class=section></div>
-      <div class=section></div>
-      <div class=section></div>
-      <div class=section></div>
-      <div class=section></div>
-      <div class=section></div>
-      <div class=section></div>
-      <div class=section></div>
-      <div class=section></div>
-      <div class=section></div>
-      <div class=section></div>
-      <div class=section></div>
-      <div class=section></div>
-      <div class=section></div>
-      <div class=section></div> -->
-    </div>
+        <div id="temperature-gauge">
+            <div id="mercury">
 
-  </div>
-</center>
+            </div>
+
+          <!-- <div class=section></div>
+          <div class=section></div>
+          <div class=section></div>
+          <div class=section></div>
+          <div class=section></div>
+          <div class=section></div>
+          <div class=section></div>
+          <div class=section></div>
+          <div class=section></div>
+          <div class=section></div>
+          <div class=section></div>
+          <div class=section></div>
+          <div class=section></div>
+          <div class=section></div>
+          <div class=section></div>
+          <div class=section></div>
+          <div class=section></div>
+          <div class=section></div>
+          <div class=section></div> -->
+        </div>
+
+      </div>
+    </center>
 
   </body>
 </html>
