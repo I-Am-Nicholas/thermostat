@@ -59,18 +59,18 @@ describe("Reset Temperature button", function(){
       for(var i = 0; i < 3; i ++) {
         thermostat.decreaseTemperature();
       }
-      expect(thermostat.currentEnergyUsage()).toEqual("low-usage")
+      expect(thermostat.currentEnergyUsage()).toEqual("Low")
     });
 
     it("as medium-usage when between 18 degrees and 24 degrees", function() {
-      expect(thermostat.currentEnergyUsage()).toEqual("medium-usage")
+      expect(thermostat.currentEnergyUsage()).toEqual("Medium")
     });
 
     it("as high-usage when above 25 degrees", function() {
       for(var i = 0; i < 5; i ++) {
         thermostat.increaseTemperature();
       }
-      expect(thermostat.currentEnergyUsage()).toEqual("high-usage")
+      expect(thermostat.currentEnergyUsage()).toEqual("High")
     });
   });
 

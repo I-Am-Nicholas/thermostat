@@ -61,7 +61,7 @@ margin: 20px 0 20px 0;
   margin: 50px 0 75px 100px;
   position: relative;
   height: 377px;
-  width: 45px;
+  width: 65px;
 }
 
 #mercury {
@@ -72,5 +72,5 @@ margin: 20px 0 20px 0;
   position: absolute;
   bottom: 0;
   height: 1%;
-  width: 45px;
+  width: 100%;
 }
