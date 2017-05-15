@@ -6,6 +6,7 @@ describe("Thermostat", function() {
   beforeEach(function(){
     thermostat = new Thermostat();
     spyOn(thermostat, 'resetGauge');
+    spyOn(thermostat, 'mercuryAlignment');
   });
 
   it("Initializes at default temperature", function(){
@@ -22,13 +23,13 @@ describe("Thermostat", function() {
     expect(thermostat.getCurrentTemperature()).toEqual(thermostat.DEFAULT_TEMP - 1);
   });
 
-describe("Reset Temperature button", function(){
-  it("resets the temperature to the default value", function() {
-    thermostat.increaseTemperature();
-    thermostat.resetTemperature();
-    expect(thermostat.getCurrentTemperature()).toEqual(thermostat.DEFAULT_TEMP);
+  describe("Reset Temperature button", function(){
+    it("resets the temperature to the default value", function() {
+      thermostat.increaseTemperature();
+      thermostat.resetTemperature();
+      expect(thermostat.getCurrentTemperature()).toEqual(thermostat.DEFAULT_TEMP);
+    });
   });
-});
 
   describe("throws an error", function(){
     it("if temperature is attempted to be adjusted to below 10 degrees", function(){

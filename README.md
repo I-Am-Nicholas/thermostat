@@ -1,4 +1,4 @@
-# THERMOSTAT
+# THERMOSTAT - My Intro to JavaScript
 
 ## A JavaScript Thermostat Interface with HTML and a JQuery UI
 

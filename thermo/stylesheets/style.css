@@ -6,7 +6,7 @@ body {
 }
 
 button {
-    background-color: #4CAF50; /* Green */
+    background-color: #4CAF50;
     border: 2px: solid;
     border-radius: 8px;
     color: white;
@@ -31,7 +31,6 @@ button {
 }
 
 #inner{
-  /*border: 2px violet solid;*/
   float: left;
   position: relative;
   margin: 15px 0 0 150px;
@@ -49,7 +48,6 @@ margin: 20px 0 20px 0;
 }
 
 .text-divs {
-  /*border: 2px red solid;*/
   margin-top: 20px;
   padding: 5px;
 }
@@ -60,7 +58,7 @@ margin: 20px 0 20px 0;
   float: left;
   margin: 50px 0 75px 100px;
   position: relative;
-  height: 377px;
+  height: 380px;
   width: 65px;
 }
 
