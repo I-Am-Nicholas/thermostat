@@ -1,3 +1,4 @@
+
 # Thermostat - An introduction to JavaScript, JQuery and Jasmine in the middle of the Makers Academy Course
 
 ## To Run Application

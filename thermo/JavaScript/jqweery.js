@@ -1,21 +1,21 @@
+'use strict';
 
 $( document ).ready(function() {
-  thermo = new Thermostat();
+  var thermo = new Thermostat();
 
   $ ("#current-temp").text(thermo.getCurrentTemperature());
+  thermo.resetGauge();
 
   $ ("#change-temp-up").click(function() {
     thermo.increaseTemperature();
-    // catch (e) {
-    //   thermo.temperature = thermo.MAX_TEMPERATURE;
-    //   console.log(e);
-    // }
+    $ ('#mercury').css('height', '+=' + thermo.INCREMENT);
     $ ("#current-temp").text(thermo.getCurrentTemperature());
     $ ("#current-energy-usage").text(thermo.currentEnergyUsage());
   });
 
-  $ ("#change-temp-down").click(function() {
+  $ ('#change-temp-down').click(function() {
     thermo.decreaseTemperature();
+    $('#mercury').css('height', '-=' + thermo.INCREMENT);
     $ ("#current-temp").text(thermo.getCurrentTemperature());
     $ ("#current-energy-usage").text(thermo.currentEnergyUsage());
   });
@@ -32,6 +32,7 @@ $( document ).ready(function() {
 
   $ ("#change-psm-on").click(function(){
     thermo.powerSavingModeOn();
+    $ ("#current-temp").text(thermo.getCurrentTemperature());
     $ ("#current-psm").text("ON");
   });
 
